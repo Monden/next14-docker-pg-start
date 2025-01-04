@@ -41,6 +41,12 @@ https://motomichi-works.hatenablog.com/entry/2024/10/19/004104
 
 ※後者の方がPermission問題が発生しやすいので前者のようにdocker外でnode installしたほうが良いと思われる
 
+### seed data install
+` $ npm run seed `
+
+### prisma studio 起動
+` $ npm run studio `
+
 ### 起動
 ` $ docker compose -f docker-compose.dev.yml up `
 
