@@ -15,6 +15,9 @@ export default async function Page() {
       <p>参考 https://reffect.co.jp/nextjs/next-js-server-action-14</p>
 
       <hr />
+      <br />
+      
+      <br />
       {users.map((user) => (
         <li key={user.id}>{user.id},{user.name},{user.email}</li>
       ))}

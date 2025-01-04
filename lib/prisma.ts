@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-let prisma: typeof PrismaClient;
+let prisma;
 // const prisma = new PrismaClient();
 
 // let prisma: PrismaClient;
