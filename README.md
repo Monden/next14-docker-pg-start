@@ -9,8 +9,8 @@ https://github.com/Monden/next14-docker-start/commit/ec5ba80592e3c2814fc748b5245
 ※Hot reload対応 (画面の修正がブラウザに即反映される)
 ※docker-compose.dev.yml のみ考慮 (本番のイメージ作成は未考慮)
 
-### Docker対応参考
-https://qiita.com/Keichan_15/items/4fc605895fef2a33b629
+### 参考
+https://zenn.dev/takumi0616/articles/3fc3097a235f64
 
 
 ### 設定済みモジュール (vscode設定含む)
@@ -33,6 +33,13 @@ https://motomichi-works.hatenablog.com/entry/2024/10/19/004104
 - 認証
 
 # Dockerを利用する場合
+
+### build (初回など)
+` $ node install `
+または
+` $ docker compose -f docker-compose.dev.yml run --rm app sh -c 'npm install' `
+
+※後者の方がPermission問題が発生しやすいので前者のようにdocker外でnode installしたほうが良いと思われる
 
 ### 起動
 ` $ docker compose -f docker-compose.dev.yml up `

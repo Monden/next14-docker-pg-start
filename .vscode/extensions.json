@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint", // eslint
+    "emmanuelbeziat.vscode-great-icons", // iconを変更
+    "esbenp.prettier-vscode", // prettier
+    "stylelint.vscode-stylelint", // stylelint
+  ]
+}
