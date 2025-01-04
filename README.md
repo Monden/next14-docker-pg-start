@@ -1,7 +1,11 @@
-## Next.js 14 のまっさらな状態にeslintなどの開発環境を導入した雛形プロジェクトです
-https://github.com/Monden/next14-start repositoryの
-master https://github.com/Monden/next14-start/commit/a5c1cbcc63cba3f01fa39fb6b642a11cc17363d4
-をベースとして Docker コンテナ上で動作確認・開発できるようにした雛形開発環境です
+## Next.js 14 のまっさらな状態に下記を対応した雛形プロジェクトです
+
+- local Docker  開発環境起動
+- local Docker  Postgresql起動
+- Next.js Server Action内でのPrismaClientでDB操作
+
+### 元環境
+https://github.com/Monden/next14-docker-start/commit/ec5ba80592e3c2814fc748b5245e43590077e1e3
 ※Hot reload対応 (画面の修正がブラウザに即反映される)
 ※docker-compose.dev.yml のみ考慮 (本番のイメージ作成は未考慮)
 
@@ -25,7 +29,7 @@ https://motomichi-works.hatenablog.com/entry/2024/08/03/204320
 https://motomichi-works.hatenablog.com/entry/2024/10/19/004104
 
 ### 未対応なもの
-- DB/Graphql
+- Graphql
 - 認証
 
 # Dockerを利用する場合
