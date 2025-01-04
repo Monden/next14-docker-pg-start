@@ -8,7 +8,7 @@ export default async function Page() {
   // ここはServer Componentsとして動作する
   const prisma = new PrismaClient();
   const users: User[] = await prisma.user.findMany();
-console.log('users', users);
+  console.log('users', users);
 
   return (
     <>
