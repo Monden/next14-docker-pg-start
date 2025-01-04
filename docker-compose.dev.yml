@@ -5,14 +5,25 @@ services:
     tty: true
     ports:
       - 3000:3000
+      - 5555:5555
     volumes:
       - ./:/app
     environment:
       - WATCHPACK_POLLING=true
     command: sh -c "npm run dev"
+    networks:
+      - app_network
+    depends_on:
+      - db
   db:
     image: postgres:16
+    hostname: db
+    env_file:
+      - .env
+    networks:
+      - app_network
     environment:
+      TZ: Asia/Tokyo
       POSTGRES_USER: johndoe
       POSTGRES_PASSWORD: randompassword
       POSTGRES_DB: mydb
@@ -20,5 +31,8 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - '5432:5432'
+networks:
+  app_network:
+    driver: bridge
 volumes:
   pgdata:

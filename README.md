@@ -11,7 +11,7 @@ https://github.com/Monden/next14-docker-start/commit/ec5ba80592e3c2814fc748b5245
 
 ### 参考
 https://zenn.dev/takumi0616/articles/3fc3097a235f64
-
+https://zenn.dev/uenishi_com/articles/4607db7c33e7b7
 
 ### 設定済みモジュール (vscode設定含む)
 eslint
@@ -64,6 +64,34 @@ https://motomichi-works.hatenablog.com/entry/2024/10/19/004104
 
 -----------------
 
+# 構築時メモ
+https://reffect.co.jp/nextjs/next-js-server-action-14
+## Unhandled Runtime Error が発生した場合
+```
+Error:
+Invalid `prisma.user.findMany()` invocation:
+
+
+Prisma Client could not locate the Query Engine for runtime "linux-musl-openssl-3.0.x".
+
+This happened because Prisma Client was generated for "debian-openssl-3.0.x", but the actual deployment required "linux-musl-openssl-3.0.x".
+Add "linux-musl-openssl-3.0.x" to `binaryTargets` in the "schema.prisma" file and run `prisma generate` after saving it:
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+```
+
+npm install を Ubuntuで実施し、実行は docker (alpine) のためと思われる
+指示に従ってschema.prismaを修正し,
+npm run postinstall
+docker containerを再起動する
+
+
+
+
+------------------
 以下は自動生成されたreadme
 
 
