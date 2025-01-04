@@ -10,7 +10,7 @@ const Page = async () => {
 
   return (
     <>
-      <p className={styles.main}>page.tsx をClient Componentとして動作させ, useState HookのFormでapi POST → Prisma(ServerComponent) → reload で追加するサンプル</p>
+      <p className={styles.main}>page.tsx をServer Action, useState HookのForm を Client Componentとして動作させ, submit → api POST → Prisma(ServerComponent) → reload で追加するサンプル</p>
       <p>参考 https://reffect.co.jp/nextjs/next-js-server-action-14#Server_Actions</p>
 
       <hr />
