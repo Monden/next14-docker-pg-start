@@ -31,6 +31,7 @@ const UserForm = () => {
   };
 
   return (
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form className="flex items-center mt-4" onSubmit={handleSubmit}>
       <label htmlFor="name">Name:</label>
       <input
