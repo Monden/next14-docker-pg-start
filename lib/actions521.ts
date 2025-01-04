@@ -1,4 +1,5 @@
 'use server';
+// 全モデルを自動生成できそう
 import { PrismaClient, User } from '@prisma/client';
 import { revalidatePath } from 'next/cache';
 

@@ -28,7 +28,7 @@ const UserForm522 = () => {
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form className="flex items-center mt-4" onSubmit={handleSubmit} >
       <label htmlFor="name" > Name: </label>
-      < input
+      <input
         id="name"
         name="name"
         value={name}
@@ -36,8 +36,8 @@ const UserForm522 = () => {
         className="border mx-2 p-1"
       />
       <br />
-      < label htmlFor="email" > Email: </label>
-      < input
+      <label htmlFor="email" > Email: </label>
+      <input
         id="email"
         name="email"
         value={email}
@@ -45,7 +45,7 @@ const UserForm522 = () => {
         className="border mx-2 p-1"
       />
       <br />
-      < button
+      <button
         type="submit"
         className="bg-blue-600 px-2 py-1 rounded-lg text-sm text-white"
       >
