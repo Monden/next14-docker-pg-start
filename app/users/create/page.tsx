@@ -6,7 +6,6 @@ export default function Page() {
   // ここはServer Componentsとして動作する
   console.log('/users/create/page.tsx');
 
-
   return (
     <>
       <div className="m-8">

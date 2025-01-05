@@ -1,13 +1,13 @@
 import styles from '../page.module.scss';
 
 import { deleteUser } from '@/lib/actions521';
+import prisma from '@/lib/prisma';
 
+import { User } from '@prisma/client';
 import Link from 'next/link';
-import { PrismaClient, User } from '@prisma/client';
 
 export default async function Page() {
   // ここはServer Componentsとして動作する
-  const prisma = new PrismaClient();
   const users: User[] = await prisma.user.findMany();
   console.log('/users/page.tsx users', users);
 

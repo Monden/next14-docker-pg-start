@@ -2,12 +2,12 @@ import styles from '../page.module.scss';
 
 import UserForm522 from '@/components/UserForm522';
 import { deleteUser } from '@/lib/actions521';
+import prisma from '@/lib/prisma';
 
-import { PrismaClient, User } from '@prisma/client';
+import { User } from '@prisma/client';
 
 export default async function Page() {
   // ここはServer Componentsとして動作する
-  const prisma = new PrismaClient();
   const users: User[] = await prisma.user.findMany();
   console.log('users', users);
 

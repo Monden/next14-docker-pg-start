@@ -1,10 +1,9 @@
 import styles from '../../page.module.scss';
 
-import { PrismaClient } from '@prisma/client';
+import prisma from '@/lib/prisma';
 
 export default async function Page({ params }: { params: { id: string } }) {
   // ここはServer Componentsとして動作する
-  const prisma = new PrismaClient();
   const user = await prisma.user.findUnique({
     where: { id: Number(params.id) },
   });

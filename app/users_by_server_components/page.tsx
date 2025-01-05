@@ -1,12 +1,11 @@
 import styles from '../page.module.scss';
 
-import { PrismaClient, User } from '@prisma/client';
+import prisma from '@/lib/prisma';
 
-// import prisma from '@/lib/prisma';
+import { User } from '@prisma/client';
 
 
 export default async function Page() {
-  const prisma = new PrismaClient();
   const users: User[] = await prisma.user.findMany();
 
   return (
@@ -16,7 +15,7 @@ export default async function Page() {
 
       <hr />
       <br />
-      
+
       <br />
       {users.map((user) => (
         <li key={user.id}>{user.id},{user.name},{user.email}</li>

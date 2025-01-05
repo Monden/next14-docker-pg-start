@@ -1,11 +1,10 @@
 import { updateUser } from '@/lib/actions521';
+import prisma from '@/lib/prisma';
 
-import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 
 export default async function Page({ params }: { params: { id: string } }) {
   // ここはServer Componentsとして動作する
-  const prisma = new PrismaClient();
   const id = Number(params.id);
   const updateUserWithId = updateUser.bind(null, id);
   const user = await prisma.user.findUnique({

@@ -1,11 +1,12 @@
 import styles from '../page.module.scss';
 
+import prisma from '@/lib/prisma';
+
 import { revalidatePath } from 'next/cache';
-import { PrismaClient, User } from '@prisma/client';
+import { User } from '@prisma/client';
 
 export default async function Page() {
   // Server Componentsとして動作する
-  const prisma = new PrismaClient();
   const users: User[] = await prisma.user.findMany();
   console.log('users', users);
 
@@ -14,7 +15,7 @@ export default async function Page() {
     // メソッドを呼ぶだけでここもServer Componentsとして動作する
     'use server';
     console.log('click addUser ', data);
-    const _prisma = new PrismaClient();
+    const _prisma = prisma;
 
     await _prisma.user.create({ data: { name: data.get('name') as string, email: data.get('email') as string } });
 

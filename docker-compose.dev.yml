@@ -1,21 +1,27 @@
 services:
   app:
+    container_name: next14_pg_start_app
     build:
       context: .
+      dockerfile: dev.Dockerfile
     tty: true
     ports:
       - 3000:3000
       - 5555:5555
     volumes:
       - ./:/app
+      - node-modules:/app/node_modules
     environment:
-      - WATCHPACK_POLLING=true
-    command: sh -c "npm run dev"
+      WATCHPACK_POLLING: true
+      DATABASE_URL: ${DATABASE_URL}
+    command: npm run dev
+    # command: sh -c "npm run dev"
     networks:
       - app_network
     depends_on:
       - db
   db:
+    container_name: next14_pg_start_db
     image: postgres:16
     hostname: db
     env_file:
@@ -36,3 +42,4 @@ networks:
     driver: bridge
 volumes:
   pgdata:
+  node-modules:

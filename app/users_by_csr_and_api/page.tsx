@@ -1,11 +1,11 @@
 import styles from '../page.module.scss';
 
 import UserForm from '@/components/UserForm';
+import prisma from '@/lib/prisma';
 
-import { PrismaClient, User } from '@prisma/client';
+import { User } from '@prisma/client';
 
 const Page = async () => {
-  const prisma = new PrismaClient();
   const users: User[] = await prisma.user.findMany();
 
   return (

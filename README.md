@@ -1,3 +1,37 @@
+## 環境構築手順
+
+### 1. .env を作成して下記を定義
+
+` $ vi .env `
+```
+DATABASE_URL="postgresql://johndoe:randompassword@db:5432/mydb?schema=public"
+```
+
+### 2. build
+
+`
+$ docker compose -f docker-compose.dev.yml build --no-cache `
+
+or
+
+`$ docker compose -f docker-compose.dev.yml build
+`
+
+### 3. Next.js, DB起動
+
+`$ docker compose -f docker-compose.dev.yml up -d`
+
+### 4. 初期table create
+`$ docker stats` でappが起動しているコンテナIDを探して
+`$ docker exec -it コンテナID npm run migrate:init`
+
+### 5. 初期データinsert
+`$ docker exec -it コンテナID npm run seed `
+
+
+
+
+
 ## Next.js 14 のまっさらな状態に下記を対応した雛形プロジェクトです
 Graphql無しでServerActionでDB操作するサンプルです
 
