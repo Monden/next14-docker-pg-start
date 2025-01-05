@@ -9,6 +9,16 @@ body {
   background-color: $green;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,th {
+  padding: 5px;
+  border: 1px solid $gray;
+}
+
 // :root {
 //   --background: #ffffff;
 //   --foreground: #171717;
