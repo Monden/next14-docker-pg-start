@@ -1,4 +1,5 @@
 ## Next.js 14 のまっさらな状態に下記を対応した雛形プロジェクトです
+Graphql無しでServerActionでDB操作するサンプルです
 
 - local Docker  開発環境起動
 - local Docker  Postgresql起動
@@ -35,7 +36,13 @@ https://motomichi-works.hatenablog.com/entry/2024/10/19/004104
 # Dockerを利用する場合
 
 ### build (初回など)
-` $ node install `
+1. vi .env
+```
+DATABASE_URL="postgresql://johndoe:randompassword@db:5432/mydb?schema=public"
+```
+
+2. install
+` $ npm install `
 または
 ` $ docker compose -f docker-compose.dev.yml run --rm app sh -c 'npm install' `
 
