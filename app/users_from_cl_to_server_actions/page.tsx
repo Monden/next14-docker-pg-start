@@ -1,6 +1,7 @@
 import styles from '../page.module.scss';
 
 import UserForm522 from '@/components/UserForm522';
+import { deleteUser } from '@/lib/actions521';
 
 import { PrismaClient, User } from '@prisma/client';
 
@@ -21,9 +22,33 @@ export default async function Page() {
       <UserForm522 />
 
       <br />
-      {users.map((user) => (
-        <li key={user.id}>{user.id},{user.name},{user.email}</li>
-      ))}
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>
+                <form>
+                  <input type="hidden" name="id" value={user.id} />
+                  <button
+                    formAction={deleteUser}
+                  >削除</button>
+                </form>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
